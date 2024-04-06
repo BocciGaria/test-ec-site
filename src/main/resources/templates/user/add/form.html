@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Add New User</title>
+    </head>
+    <body>
+        <th:block th:if="${error} != null">
+            <div th:text="${error}" style="color: red;"></div>
+        </th:block>
+        <form th:action="@{/user/add}" th:object="${user}" method="post">
+            <div>
+                <label for="name"> User Name : </label>
+                <input type="text" th:field="*{name}"/>
+            </div>
+            <div>
+                <label for="email"> E-Mail Address: </label>
+                <input type="email" th:field="*{email}"/>
+            </div>
+            <div>
+                <input type="submit" value="Add"/>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Complete Add New User</title>
+    </head>
+    <body>
+        <div>
+            <h1>User Added Successfully</h1>
+            <p>User ID : <span th:text="${user.id}"></span></p>
+            <p>User Name : <span th:text="${user.name}"></span></p>
+            <p>E-Mail Address: <span th:text="${user.email}"></span></p>
+        </div>
+        <form th:action="@{/user/all}" method="get">
+            <input type="submit" value="Show all users">
+        </form>
+        <form th:action="@{/home}" method="get">
+            <input type="submit" value="Home">
+        </form>
+    </body>
+</html>
