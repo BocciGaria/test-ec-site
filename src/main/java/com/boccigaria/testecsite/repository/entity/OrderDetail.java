@@ -21,38 +21,22 @@ public class OrderDetail {
     private Order order;
     @Id
     private Integer detail_no;
-
-    // private OrderDetailPKey orderDetailPKey;
-
     @ManyToOne
     @JoinColumn(nullable = false)
     private Course course;
 
-    // @Id
-    // @ManyToOne
-    // @JoinColumn
-    // public Order getOrder() {
-    //     return order;
-    // }
-    // public void setOrder(Order order) {
-    //     this.order = order;
-    // }
-    // @Id
-    // public Integer getDetailNo() {
-    //     return detail_no;
-    // }
-    // public void setDetailNo(Integer detail_no) {
-    //     this.detail_no = detail_no;
-    // }
-
-    // @EmbeddedId
-    // public OrderDetailPKey getOrderDetailPKey() {
-    //     return orderDetailPKey;
-    // }
-    // public void setOrderDetailPKey(OrderDetailPKey orderDetailPKey) {
-    //     this.orderDetailPKey = orderDetailPKey;
-    // }
-
+    public Order getOrder() {
+        return order;
+    }
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+    public Integer getDetailNo() {
+        return detail_no;
+    }
+    public void setDetailNo(Integer detail_no) {
+        this.detail_no = detail_no;
+    }
     public Course getCourse() {
         return course;
     }

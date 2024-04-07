@@ -8,6 +8,10 @@ public class OrderDetailPKey implements Serializable {
     private Order order;
     private Integer detail_no;
 
+    public OrderDetailPKey() {
+
+    }
+
     public OrderDetailPKey(Order order, Integer detail_no) {
         this.order = order;
         this.detail_no = detail_no;
