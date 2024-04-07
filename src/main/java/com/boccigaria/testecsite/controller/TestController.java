@@ -1,4 +1,4 @@
-package com.boccigaria.testecsite;
+package com.boccigaria.testecsite.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;

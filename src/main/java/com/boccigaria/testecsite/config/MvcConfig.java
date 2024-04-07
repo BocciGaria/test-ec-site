@@ -1,4 +1,4 @@
-package com.boccigaria.testecsite;
+package com.boccigaria.testecsite.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +21,6 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/home").setViewName("home");
         registry.addViewController("/").setViewName("home");
         registry.addViewController("/login").setViewName("login");
-        registry.addViewController("/cart").setViewName("cart");
     }
 
     @Bean

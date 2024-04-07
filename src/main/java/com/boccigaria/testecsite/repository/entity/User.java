@@ -1,4 +1,4 @@
-package com.boccigaria.testecsite;
+package com.boccigaria.testecsite.repository.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
