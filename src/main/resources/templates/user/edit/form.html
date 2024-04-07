@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+</head>
+<body>
+    <th:block th:if="${error} != null">
+        <div th:text="${error}" style="color: red;"></div>
+    </th:block>
+    <form th:action="@{/user/edit/confirm/{id}(id=${user.id})}" th:object="${user}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div>
+            <label for="name">User Name : </label>
+            <input type="text" th:field="*{name}">
+        </div>
+        <div>
+            <label for="email">E-Mail Address</label>
+            <input type="email" th:field="*{email}">
+        </div>
+        <div>
+            <input type="submit" value="Confirm">
+        </div>
+    </form>
+    <div><a th:href="@{/user/all}">Back to index</a></div>
+</body>
+</html>

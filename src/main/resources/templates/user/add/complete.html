@@ -10,11 +10,7 @@
             <p>User Name : <span th:text="${user.name}"></span></p>
             <p>E-Mail Address: <span th:text="${user.email}"></span></p>
         </div>
-        <form th:action="@{/user/all}" method="get">
-            <input type="submit" value="Show all users">
-        </form>
-        <form th:action="@{/home}" method="get">
-            <input type="submit" value="Home">
-        </form>
+        <div><a th:href="@{/user/all}">Back to index</a></div>
+        <div><a th:href="@{/home}">Home</a></div>
     </body>
 </html>

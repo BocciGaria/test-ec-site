@@ -9,11 +9,13 @@
                 <th>ID</th>
                 <th>NAME</th>
                 <th>EMail Address</th>
+                <th>edit</th>
             </tr>
             <tr th:each="user:${users}">
                 <td th:text="${user.id}"></td>
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.email}"></td>
+                <td><a th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a></td>
             </tr>
         </table>
         <form th:action="@{/home}" method="get">
