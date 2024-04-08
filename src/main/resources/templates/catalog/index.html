@@ -6,6 +6,18 @@
     <title>Catalog Index</title>
 </head>
 <body>
-
+    <th:block th:if="${message} != null">
+        <div th:text="${message}" style="color: green;"></div>
+    </th:block>
+    <table>
+        <tr>
+            <th>コース名</th>
+        </tr>
+        <tr th:each="course:${courses}">
+            <td th:text="${course.name}"></td>
+            <td><a th:href="@{/catalog/detail{id}(id=${course.id})}">詳細</a></td>
+            <td><a th:href="@{/catalog/add/{id}(id=${course.id})}">カートに追加</a></td>
+        </tr>
+    </table>
 </body>
 </html>

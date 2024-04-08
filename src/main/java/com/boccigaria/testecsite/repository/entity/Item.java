@@ -12,14 +12,14 @@ import jakarta.persistence.UniqueConstraint;
 @Table(
     name = "items",
     uniqueConstraints = {
-        @UniqueConstraint(name = "name_unique", columnNames = {"name"}),
+        @UniqueConstraint(columnNames = {"name"}),
     }
 )
 public class Item {
     @Id
     private String id;
     @ManyToOne
-    @JoinColumn(name = "category", nullable = false)
+    @JoinColumn(nullable = false)
     private Category category;
     @Column(nullable = false)
     private String name;

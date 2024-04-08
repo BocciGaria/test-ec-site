@@ -1,6 +1,7 @@
 package com.boccigaria.testecsite.repository.entity;
 
 import java.util.Date;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,11 +24,14 @@ public class Order {
     @Column(nullable = false)
     private Date order_date;
     @ManyToOne
-    @JoinColumn(name = "customer", nullable = false)
+    @JoinColumn(nullable = false)
     private Customer customer;
     @ManyToOne
-    @JoinColumn(name = "payment", nullable = false)
+    @JoinColumn(nullable = false)
     private Payment payment;
+
+    @OneToMany(mappedBy = "order")
+    private Set<OrderDetail> orderDetails;
 
     public Customer getCustomer() {
         return customer;
@@ -51,5 +56,11 @@ public class Order {
     }
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+    public Set<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+    public void setOrderDetails(Set<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 }

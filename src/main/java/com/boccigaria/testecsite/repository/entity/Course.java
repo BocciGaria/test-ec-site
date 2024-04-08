@@ -1,10 +1,11 @@
 package com.boccigaria.testecsite.repository.entity;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
@@ -12,19 +13,14 @@ import jakarta.persistence.UniqueConstraint;
 @Table(
     name = "courses",
     uniqueConstraints = {
-        @UniqueConstraint(name = "name_unique", columnNames = {"name"}),
+        @UniqueConstraint(columnNames = {"name"}),
     }
 )
 public class Course {
     @Id
     private String id;
-    @ManyToOne
-    @JoinColumn(name = "item", nullable = false)
-    private Item item;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private Integer quantity;
 
     public String getId() {
         return id;
@@ -32,22 +28,33 @@ public class Course {
     public void setId(String id) {
         this.id = id == "" ? null : id;
     }
-    public Item getItem() {
-        return item;
-    }
-    public void setItem(Item item) {
-        this.item = item;
-    }
     public String getName() {
         return name;
     }
     public void setName(String name) {
         this.name = name == "" ? null : name;
     }
-    public Integer getQuantity() {
-        return quantity;
+
+    @OneToMany(mappedBy = "course")
+    private Set<CourseDetail> courseDetails;
+
+    public Set<CourseDetail> getCourseDetails() {
+        return courseDetails;
     }
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setCourseDetails(Set<CourseDetail> courseDetails) {
+        this.courseDetails = courseDetails;
+    }
+
+    /**
+     * Get the total price with tax for the course
+     * @return price(rounded)
+     */
+    public Integer getTotalPrice() {
+        Integer result = 0;
+        for (CourseDetail d : courseDetails) {
+            result += d.getItem().getPrice();
+            result += Math.round(d.getItem().getPrice() * d.getItem().getCategory().getTax());
+        }
+        return result;
     }
 }

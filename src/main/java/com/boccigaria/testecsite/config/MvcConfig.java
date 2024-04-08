@@ -25,7 +25,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(requests -> requests.requestMatchers("/test").permitAll().anyRequest().authenticated())
+        http.authorizeHttpRequests(requests -> requests.requestMatchers("/error", "/test", "/catalog", "/catalog/**").permitAll().anyRequest().authenticated())
             .formLogin(form -> form.loginPage("/login").permitAll())
             .logout(logout -> logout.permitAll());
         return http.build();
