@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コース詳細</title>
+</head>
+<body>
+    <h1>コース詳細</h1>
+    <table th:object="${course}">
+        <tr>
+            <th>コースID</th>
+            <td th:text="*{id}"></td>
+        </tr>
+        <tr>
+            <th>コース名</th>
+            <td th:text="*{name}"></td>
+        </tr>
+        <tr>
+            <th>商品</th>
+            <td>
+                <ul>
+                    <li th:each="detail:*{courseDetails}" th:text="${detail.item.name} + ' ' + ${detail.quantity} + '個'"></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>合計金額</th>
+            <td><span th:text="${totalPrice}"></span>円</td>
+        </tr>
+    </table>
+    <a th:href="@{/catalog}">カタログに戻る</a>
+</body>
+</html>

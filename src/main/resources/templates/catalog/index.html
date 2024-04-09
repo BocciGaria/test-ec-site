@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalog Index</title>
+    <title>カタログ</title>
 </head>
 <body>
+    <th:block th:if="${session.coursesInCart} != null">
+        <h2>カート内</h2>
+        <ul>
+            <li th:each="courseId:${session.coursesInCart}" th:text="${courseId}"></li>
+        </ul>
+    </th:block>
     <th:block th:if="${message} != null">
         <div th:text="${message}" style="color: green;"></div>
     </th:block>
@@ -15,9 +21,10 @@
         </tr>
         <tr th:each="course:${courses}">
             <td th:text="${course.name}"></td>
-            <td><a th:href="@{/catalog/detail{id}(id=${course.id})}">詳細</a></td>
+            <td><a th:href="@{/catalog/detail/{id}(id=${course.id})}">詳細</a></td>
             <td><a th:href="@{/catalog/add/{id}(id=${course.id})}">カートに追加</a></td>
         </tr>
     </table>
+    <a th:href="@{/cart}">カートを見る</a>
 </body>
 </html>

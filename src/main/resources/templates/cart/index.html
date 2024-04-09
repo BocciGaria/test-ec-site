@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
     <head>
-        <title>Shopping Cart</title>
+        <title>ショッピングカート</title>
     </head>
     <body>
-        <h1>Hello! This is shopping cart page.</h1>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+        <h1>ショッピングカート</h1>
+        
+        <a th:href="@{/catalog}">買い物を続ける</a>
     </body>
 </html>
