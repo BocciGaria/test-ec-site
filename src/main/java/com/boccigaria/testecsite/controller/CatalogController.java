@@ -1,12 +1,9 @@
 package com.boccigaria.testecsite.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,17 +35,17 @@ public class CatalogController {
         if (course_id == null) return "redirect:/catalog/index";
 
         // セッションでカート内コースを保持
-        ArrayList<String> coursesInCart;
-        if (session.getAttribute("coursesInCart") == null) {
-            coursesInCart = new ArrayList<>();
+        ArrayList<String> coursesIdsInCart;
+        if (session.getAttribute("coursesIdsInCart") == null) {
+            coursesIdsInCart = new ArrayList<>();
         } else {
-            coursesInCart = (ArrayList<String>)session.getAttribute("coursesInCart");
+            coursesIdsInCart = (ArrayList<String>)session.getAttribute("coursesIdsInCart");
         }
-        if (!coursesInCart.contains(course_id)) {
-            coursesInCart.addLast(course_id);
+        if (!coursesIdsInCart.contains(course_id)) {
+            coursesIdsInCart.addLast(course_id);
         }
-        session.removeAttribute("coursesInCart");
-        session.setAttribute("coursesInCart", coursesInCart);
+        session.removeAttribute("coursesIdsInCart");
+        session.setAttribute("coursesIdsInCart", coursesIdsInCart);
         // 一覧表示用
         var courses = courseRepository.findAll();
         model.addAttribute("courses", courses);

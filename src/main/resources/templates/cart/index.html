@@ -5,7 +5,36 @@
     </head>
     <body>
         <h1>ショッピングカート</h1>
-        
-        <a th:href="@{/catalog}">買い物を続ける</a>
+        <th:block th:if="${empty}">
+        <p>カートの中身が空です。</p>
+        </th:block>
+        <th:block th:unless="${empty}">
+        <ol>
+            <li th:each="course:${courses}">
+                <table th:object="${course}">
+                    <tr>
+                        <th>コースID</th>
+                        <td th:text="*{id}"></td>
+                    </tr>
+                    <tr>
+                        <th>コース名</th>
+                        <td th:text="*{name}"></td>
+                    </tr>
+                    <tr>
+                        <th>商品</th>
+                        <td>
+                            <ul>
+                                <li th:each="detail:*{courseDetails}" th:text="${detail.item.name} + ' ' + ${detail.quantity} + '個'"></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        </ol>
+        <p>合計金額: <span th:text="${totalPrice}"></span>円</p>
+        </th:block>
+        <a th:unless="${empty}" th:href="@{/order}">注文する</a><br>
+        <a th:unless="${empty}" th:href="@{/cart/clear}">カートを空にする</a><br>
+        <a th:href="@{/catalog}">買い物を続ける</a><br>
     </body>
 </html>
