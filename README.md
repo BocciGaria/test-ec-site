@@ -1,6 +1,6 @@
 # はじめてのSpring Framework
 ## はじめに
-こちらのプロジェクトはSpring Frameworkを使用した、なんちゃってECサイトです。
+こちらのプロジェクトはSpring Frameworkを使用したなんちゃってECサイトです。<br>
 Spring Frameworkを初めて触ることになったため、基本的な機能を試すために作成しました。
 ## 使用技術
 - Java SE 21
@@ -8,6 +8,7 @@ Spring Frameworkを初めて触ることになったため、基本的な機能�
 - maven 4.0.0
 - MySQL for mac 8.3.0
 - Thymeleaf 3.1.1
+
 その他Javaで使用するライブラリは[pom.xml](./pom.xml)を参照してください。
 ## プロジェクト構成
 ```bash
