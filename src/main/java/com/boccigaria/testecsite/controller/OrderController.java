@@ -1,13 +1,7 @@
 package com.boccigaria.testecsite.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,16 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.boccigaria.testecsite.repository.CourseRepository;
-import com.boccigaria.testecsite.repository.CustomerRepository;
-import com.boccigaria.testecsite.repository.OrderRepository;
 import com.boccigaria.testecsite.repository.PaymentRepository;
-import com.boccigaria.testecsite.repository.entity.Course;
 import com.boccigaria.testecsite.repository.entity.Order;
-import com.boccigaria.testecsite.repository.entity.OrderDetail;
 import com.boccigaria.testecsite.service.OrderPlacementService;
 
 import jakarta.servlet.http.HttpSession;
-import jakarta.transaction.Transactional;
 
 @Controller
 @RequestMapping("/order")

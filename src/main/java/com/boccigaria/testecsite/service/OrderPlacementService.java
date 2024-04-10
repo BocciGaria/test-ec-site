@@ -1,6 +1,5 @@
 package com.boccigaria.testecsite.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -14,7 +13,6 @@ import com.boccigaria.testecsite.repository.CourseRepository;
 import com.boccigaria.testecsite.repository.CustomerRepository;
 import com.boccigaria.testecsite.repository.OrderDetailRepository;
 import com.boccigaria.testecsite.repository.OrderRepository;
-import com.boccigaria.testecsite.repository.PaymentRepository;
 import com.boccigaria.testecsite.repository.entity.Course;
 import com.boccigaria.testecsite.repository.entity.Order;
 import com.boccigaria.testecsite.repository.entity.OrderDetail;
