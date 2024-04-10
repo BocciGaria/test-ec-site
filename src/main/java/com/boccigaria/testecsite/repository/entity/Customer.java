@@ -25,8 +25,8 @@ public class Customer {
     private String address;
     @Column(nullable = false)
     private String email;
-    @Column(nullable = false)
-    private Integer tel;
+    @Column(nullable = false, length = 11)
+    private String tel;
 
     public Integer getId() {
         return id;
@@ -52,10 +52,10 @@ public class Customer {
     public void setEmail(String email) {
         this.email = email == "" ? null : email;
     }
-    public Integer getTel() {
+    public String getTel() {
         return tel;
     }
-    public void setTel(Integer tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 }

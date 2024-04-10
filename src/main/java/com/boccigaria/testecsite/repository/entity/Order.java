@@ -22,7 +22,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
-    private Date order_date;
+    private Date orderDate;
     @ManyToOne
     @JoinColumn(nullable = false)
     private Customer customer;
@@ -45,11 +45,11 @@ public class Order {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Date getOrder_date() {
-        return order_date;
+    public Date getOrderDate() {
+        return orderDate;
     }
-    public void setOrder_date(Date order_date) {
-        this.order_date = order_date;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
     public Payment getPayment() {
         return payment;

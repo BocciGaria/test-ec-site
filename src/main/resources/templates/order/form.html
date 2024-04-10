@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注文</title>
+</head>
+<body>
+    <h1>お申し込み</h1>
+    <p th:if="${error} != null" th:text="${error}" style="color: red;"></p>
+    <form th:action="@{/order}" th:object="${order}" method="post">
+        <table>
+            <caption>お客様情報</caption>
+            <tr>
+                <th>氏名</th>
+                <td><input type="text" th:field="*{customer.name}" /></td>
+            </tr>
+            <tr>
+                <th>住所</th>
+                <td><input type="text" th:field="*{customer.address}" /></td>
+            </tr>
+            <tr>
+                <th>メールアドレス</th>
+                <td><input type="email" th:field="*{customer.email}" /></td>
+            </tr>
+            <tr>
+                <th>電話番号</th>
+                <td><input type="tel" th:field="*{customer.tel}" /></td>
+            </tr>
+            <tr>
+                <th>お支払い方法</th>
+                <td>
+                    <select th:field="*{payment}">
+                        <option th:each="p:${paymentMethods}" th:value="${p.id}" th:text="${p.name}"></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="確定">
+        <br>
+        <a th:href="@{/cart}">カートに戻る</a>
+    </form>
+</body>
+</html>
